@@ -3,7 +3,11 @@ $(function (){
   if (isMobile.matches) {
     $('.day div.checkbox').off()
     $('.day div.checkbox').on('click', function(){
-      $(event.target).prop('checked', false)
+      // sets a custom property so we don't assign checked as we open the menu
+      if (event.target.type == 'checkbox' && event.target.touched == true)
+      {$(event.target).prop('checked', true)}
+      else $(event.target).prop('checked', false)
+
       $('#myModal').css("display", "inline-block")
       $('.mobile-menu').show()})
 
@@ -57,6 +61,7 @@ $(function (){
           let id = "#" + day + Math.floor(i) + halfHour + 'am'
           if (i < 1) id = "#" + day + '12' + halfHour + 'am'
           $(id).prop('checked', true)
+          $(id).prop('touched', true)
         }
         for (let i = 12; i <= endingTime + .5; i = i + .5){
           let halfHour = ''
@@ -65,6 +70,7 @@ $(function (){
           if (i > 12.6) hour = i - 12
           let id = "#" + day + Math.floor(hour) + halfHour + 'pm'
           $(id).prop('checked', true)
+          $(id).prop('touched', true)
         }
       }
       else if (amStart) {
@@ -74,6 +80,7 @@ $(function (){
           let id = "#" + day + Math.floor(i) + halfHour + 'am'
           if (i < 1) id = "#" + day + '12' + halfHour + 'am'
           $(id).prop('checked', true)
+          $(id).prop('touched', true)
         }
       }
       else {
@@ -83,6 +90,7 @@ $(function (){
           if (i > 12.6) hour = i - 12
           let id = "#" + day + Math.floor(i) + halfHour + 'pm'
           $(id).prop('checked', true)
+          $(id).prop('touched', true)
         }
       }
   }
