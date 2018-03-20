@@ -32,14 +32,36 @@
 						<div class="modal-content">
 							<div class="modal-header">
 								<span class="close">&times;</span>
-								<h2>Enter your event start and end time</h2>
+								<h4>Enter your event start and end time. The calendar will round to the nearest half hour</h4>
 							</div>
 							<div class="modal-body">
-								<form>
-									<label for="start">Start Time</label>
-									<input id="start" name="start" type="time">
-									<label for="end">End Time</label>
-									<input id="end" name="end" type="time">
+								<form id="mobile-form">
+									<div>
+										<label for="start">Start Day and Time</label>
+										<select name="startDay">
+											<option value="sun">Sunday</option>
+											<option value="mon">Monday</option>
+											<option value="tue">Tuesday</option>
+											<option value="wed">Wednesday</option>
+											<option value="thu">Thursday</option>
+											<option value="fri">Friday</option>
+											<option value="sat">Saturday</option>
+										</select>
+										<input id="start" name="start" type="time" step="1800">
+									</div>
+									<div>
+										<label for="end">End Day and Time</label>
+										<select name="endDay">
+											<option value="sun">Sunday</option>
+											<option value="mon">Monday</option>
+											<option value="tue">Tuesday</option>
+											<option value="wed">Wednesday</option>
+											<option value="thu">Thursday</option>
+											<option value="fri">Friday</option>
+											<option value="sat">Saturday</option>
+										</select>
+										<input id="end" name="end" type="time">
+									</div>
 							</div>
 							<div class="modal-footer">
 								<button type="submit">Submit your times</button>
